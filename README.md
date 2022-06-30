@@ -2,7 +2,11 @@
 
 **A simple responsive joke generator website made with icanhazdadjoke API**
 
-Go to the link below:
+Go to any one of the links below:
+
+https://convolva.github.io/joke-generator/dist/
+
+or
 
 https://convolva.github.io/joke-generator/dist/index.html
 
