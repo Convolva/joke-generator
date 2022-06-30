@@ -1,6 +1,6 @@
 # joke-generator
 
-**A simple responsive joke generator website made with icanhazdadjoke API**
+**A simple responsive joke generator web-app made with icanhazdadjoke API**
 
 Go to any one of the links below:
 
