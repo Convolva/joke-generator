@@ -42,6 +42,16 @@ module.exports = {
   },
 
   plugins: [
+  {
+     apply: (compiler) => {
+       compiler.hooks.done.tap('DonePlugin', (stats) => {
+         console.log('Compile is done !');
+         setTimeout(() => {
+           process.exit(0);
+         });
+       });
+     }
+  },
     new HTMLWebPackPlugin({
       title: "Joke Generator App",
       filename: "index.html",
