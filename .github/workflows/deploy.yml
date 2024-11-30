@@ -3,22 +3,28 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main
+      - main  # Only trigger on changes to the main branch
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      # Step 1: Checkout the repository
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Build project
-        run: |
-          npm install
-          npm run build
+      # Step 2: Install dependencies
+      - name: Install Dependencies
+        run: npm ci
 
+      # Step 3: Build the project
+      - name: Build Project
+        run: npm run build
+
+      # Step 4: Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
+          publish_branch: gh-pages
