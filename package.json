@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack"
+    "build": "webpack",
+    "add-cname": "echo joke-generator.convolva.dev > dist/CNAME"
   },
   "keywords": [],
   "author": "",
