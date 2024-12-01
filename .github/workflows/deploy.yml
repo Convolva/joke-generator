@@ -17,10 +17,6 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
-      # Step 3: Add CNAME
-      - name: Add CNAME
-        run: npm run add-cname
-
       # Step 4: Build the project
       - name: Build Project
         run: npm run build
