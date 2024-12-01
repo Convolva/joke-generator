@@ -9,6 +9,7 @@ module.exports = {
 
   entry: {
     bundle: path.resolve(__dirname, "src/index.js"),
+    errorPage: path.resolve(__dirname, "src/404.js"),
   },
 
   output: {
@@ -42,20 +43,26 @@ module.exports = {
   },
 
   plugins: [
-  {
-     apply: (compiler) => {
-       compiler.hooks.done.tap('DonePlugin', (stats) => {
-         console.log('Compile is done !');
-         setTimeout(() => {
-           process.exit(0);
-         });
-       });
-     }
-  },
+    {
+      apply: (compiler) => {
+        compiler.hooks.done.tap("DonePlugin", (stats) => {
+          console.log("Compile is done !");
+          setTimeout(() => {
+            process.exit(0);
+          });
+        });
+      },
+    },
     new HTMLWebPackPlugin({
       title: "Joke Generator App",
       filename: "index.html",
       template: "src/template.html",
+    }),
+    new HTMLWebPackPlugin({
+      title: "Page Not Found",
+      filename: "404.html",
+      template: "src/pages/404.html",
+      chunks: ["errorPage"],
     }),
     new BundleAnalyzerPlugin(),
   ],
