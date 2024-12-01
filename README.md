@@ -1,6 +1,6 @@
 # joke-generator
 
-# **A simple & responsive joke generator web-app made with icanhazdadjoke API**
+### **A simple & responsive joke generator web-app made with icanhazdadjoke API**
 
 ---
 
@@ -8,14 +8,9 @@
 
 https://joke-generator.convolva.dev/
 
-or
-
-https://joke-generator.convolva.dev/dist
 
 Now, simply click on the 'Get another Joke' button to get a new random joke.
 
 ---
-
-Enjoy! :)
 
 _-Convolva_
