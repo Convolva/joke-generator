@@ -1,8 +1,5 @@
 const path = require("path");
 const HTMLWebPackPlugin = require("html-webpack-plugin");
-const loader = require("sass-loader");
-const BundleAnalyzerPlugin =
-  require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
 module.exports = {
   mode: "production",
@@ -16,6 +13,7 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
     filename: "[name].[contenthash].js",
     clean: true,
+    publicPath: "/joke-generator/",
     assetModuleFilename: "[name][ext]",
   },
 
@@ -43,20 +41,11 @@ module.exports = {
   },
 
   plugins: [
-    {
-      apply: (compiler) => {
-        compiler.hooks.done.tap("DonePlugin", (stats) => {
-          console.log("Compile is done !");
-          setTimeout(() => {
-            process.exit(0);
-          });
-        });
-      },
-    },
     new HTMLWebPackPlugin({
       title: "Joke Generator App",
       filename: "index.html",
       template: "src/template.html",
+      chunks: ["bundle"],
     }),
     new HTMLWebPackPlugin({
       title: "Page Not Found",
@@ -64,7 +53,5 @@ module.exports = {
       template: "src/pages/404.html",
       chunks: ["errorPage"],
     }),
-    new BundleAnalyzerPlugin(),
   ],
-  watch: true, // This is for live watching on the host with live server
 };
